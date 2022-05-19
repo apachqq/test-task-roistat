@@ -1,7 +1,7 @@
 <template>
     <div class="div">
         <div>
-            <button class="btn">Добавить</button>
+            <button class="btn" @click="this.isOpen = !this.isOpen">Добавить</button>
             <table border="1">
                 <tr>
                     <td>Имя</td>
@@ -29,30 +29,23 @@
                 </tr>
             </table>
         </div>
-        <div class="form">
-            <form>
-                <p>Добавление пользователя</p>
-                <div class="form-control">
-                    <label for="name">Имя</label>
-                    <input type="text" id="name">
-                </div>
-                <div class="form-control">
-                    <label for="number">Телефон</label>
-                    <input type="text" id="number">
-                </div>
-                <div class="form-control">
-                    <label for="select">Начальник</label>
-                    <select id="select">
-                        <option disabled>Начальник</option>
-                    </select>
-                </div>
-                <button class="btn">Сохранить</button>
-            </form>
-        </div>
+
+        <my-dialog :isOpen="isOpen"></my-dialog>
+
     </div>
 </template>
 
 <script>
+    import MyDialog from '@/components/MyDialog'
+
+    export default {
+        data() {
+            return {
+                isOpen: true
+            }
+        },
+        components: {MyDialog}
+    }
 </script>
 
 <style lang="scss">
