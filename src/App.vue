@@ -29,6 +29,26 @@
                 </tr>
             </table>
         </div>
+        <div class="form">
+            <form>
+                <p>Добавление пользователя</p>
+                <div class="form-control">
+                    <label for="name">Имя</label>
+                    <input type="text" id="name">
+                </div>
+                <div class="form-control">
+                    <label for="number">Телефон</label>
+                    <input type="text" id="number">
+                </div>
+                <div class="form-control">
+                    <label for="select">Начальник</label>
+                    <select id="select">
+                        <option disabled>Начальник</option>
+                    </select>
+                </div>
+                <button class="btn">Сохранить</button>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -36,6 +56,45 @@
 </script>
 
 <style lang="scss">
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .form-control {
+        clear: both;
+        text-align: right;
+    }
+
+    .form {
+        margin-top: 4rem;
+    }
+
+    form {
+        margin-left: 20px;
+        padding: 20px;
+        border: 1px solid black;
+
+        div {
+            margin: 15px 0;
+
+            label {
+                float: left;
+                margin-right: 25px;
+            }
+
+            input {
+                width: 120px;
+            }
+
+            select {
+                width: 123px;
+            }
+        }
+
+
+    }
+
     .btn {
         border-radius: 8px;
         border: 1px solid black;
@@ -48,6 +107,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
 
         table {
             width: 300px;
