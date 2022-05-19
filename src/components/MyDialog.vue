@@ -16,7 +16,7 @@
                     <option disabled>Начальник</option>
                 </select>
             </div>
-            <button class="btn">Сохранить</button>
+            <my-button>Сохранить</my-button>
         </form>
     </div>
 </template>

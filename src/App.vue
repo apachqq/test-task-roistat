@@ -1,7 +1,7 @@
 <template>
     <div class="div">
         <div>
-            <button class="btn" @click="this.isOpen = !this.isOpen">Добавить</button>
+            <my-button>Добавить</my-button>
             <table border="1">
                 <tr>
                     <td>Имя</td>
@@ -86,14 +86,6 @@
         }
 
 
-    }
-
-    .btn {
-        border-radius: 8px;
-        border: 1px solid black;
-        padding: 5px 15px;
-        margin: 10px;
-        font-size: 10px;
     }
 
     .div {
