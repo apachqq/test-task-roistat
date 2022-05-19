@@ -4,11 +4,11 @@
             <p>Добавление пользователя</p>
             <div class="form-control">
                 <label for="name">Имя</label>
-                <input type="text" id="name">
+                <input type="text" id="name" v-model="people.name">
             </div>
             <div class="form-control">
                 <label for="number">Телефон</label>
-                <input type="text" id="number">
+                <input type="text" id="number" v-model="people.number">
             </div>
             <div class="form-control">
                 <label for="select">Начальник</label>
@@ -16,13 +16,31 @@
                     <option disabled>Начальник</option>
                 </select>
             </div>
-            <my-button>Сохранить</my-button>
+            <my-button @click.prevent="createPeople">Сохранить</my-button>
         </form>
     </div>
 </template>
 
 <script>
     export default {
+        data() {
+            return {
+                people: {
+                    name: '',
+                    number: ''
+                }
+            }
+        },
+        methods: {
+            createPeople() {
+                this.people.id = Date.now()
+                this.$emit('create', this.people)
+                this.people = {
+                    name: '',
+                    number: ''
+                }
+            }
+        },
         props: {
             isOpen: {
                 type: Boolean

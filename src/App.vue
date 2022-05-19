@@ -1,37 +1,25 @@
 <template>
     <div class="div">
         <div>
-            <my-button>Добавить</my-button>
+            <my-button @click="isOpen = !isOpen">Добавить</my-button>
             <table border="1">
                 <tr>
-                    <td>Имя</td>
-                    <td>Телефон</td>
+                    <th>Имя</th>
+                    <th>Телефон</th>
                 </tr>
-                <tr>
-                    <td>Марина</td>
-                    <td>+7 941 123 21 42</td>
-                </tr>
-                <tr>
-                    <td>Петр</td>
-                    <td>+7 941 123 21 42</td>
-                </tr>
-                <tr>
-                    <td>Алексей</td>
-                    <td>+7 941 123 21 42</td>
-                </tr>
-                <tr>
-                    <td>Иван</td>
-                    <td>+7 941 123 21 42</td>
-                </tr>
-                <tr>
-                    <td>Борис</td>
-                    <td>+7 941 123 21 42</td>
+                <tr
+                        v-for="people in persons"
+                        :key="people.id"
+                >
+                    <td>{{ people.name }}</td>
+                    <td>{{ people.number }}</td>
                 </tr>
             </table>
         </div>
-
-        <my-dialog :isOpen="isOpen"></my-dialog>
-
+        <my-dialog
+                :isOpen="isOpen"
+                @create="createPeople"
+        ></my-dialog>
     </div>
 </template>
 
@@ -41,7 +29,19 @@
     export default {
         data() {
             return {
-                isOpen: true
+                isOpen: true,
+                persons: [
+                    {id: 1, name: 'Марина', number: '+7 941 123 21 42'},
+                    {id: 2, name: 'Петр', number: '+7 941 123 21 42'},
+                    {id: 3, name: 'Алексей', number: '+7 941 123 21 42'},
+                    {id: 4, name: 'Иван', number: '+7 941 123 21 42'},
+                    {id: 5, name: 'Борис', number: '+7 941 123 21 42'}
+                ]
+            }
+        },
+        methods: {
+            createPeople(people) {
+                this.persons.push(people)
             }
         },
         components: {MyDialog}
