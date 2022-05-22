@@ -18,6 +18,7 @@
         </div>
         <my-dialog
                 :isOpen="isOpen"
+                :persons="persons"
                 @create="createPeople"
         ></my-dialog>
     </div>

@@ -10,18 +10,19 @@
                 <label for="number">Телефон</label>
                 <input type="text" id="number" v-model="people.number">
             </div>
-            <div class="form-control">
-                <label for="select">Начальник</label>
-                <select id="select">
-                    <option disabled>Начальник</option>
-                </select>
-            </div>
+
+            <my-select
+                    :persons="persons"
+            ></my-select>
+
             <my-button @click.prevent="createPeople">Сохранить</my-button>
         </form>
     </div>
 </template>
 
 <script>
+    import MySelect from '@/components/MySelect'
+
     export default {
         data() {
             return {
@@ -44,8 +45,12 @@
         props: {
             isOpen: {
                 type: Boolean
+            },
+            persons: {
+                type: Array
             }
-        }
+        },
+        components: {MySelect}
     }
 </script>
 
