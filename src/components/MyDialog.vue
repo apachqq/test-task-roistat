@@ -8,7 +8,7 @@
             </div>
             <div class="form-control">
                 <label for="number">Телефон</label>
-                <input type="text" id="number" v-model="people.number">
+                <input type="number" id="number" v-model="people.number">
             </div>
 
             <my-select
@@ -34,11 +34,13 @@
         },
         methods: {
             createPeople() {
-                this.people.id = Date.now()
-                this.$emit('create', this.people)
-                this.people = {
-                    name: '',
-                    number: ''
+                if (this.people.name !== '' && this.people.number !== '') {
+                    this.people.id = Date.now()
+                    this.$emit('create', this.people)
+                    this.people = {
+                        name: '',
+                        number: ''
+                    }
                 }
             }
         },

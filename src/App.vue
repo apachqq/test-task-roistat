@@ -4,7 +4,7 @@
             <my-button @click="isOpen = !isOpen">Добавить</my-button>
             <table border="1">
                 <tr>
-                    <th>Имя</th>
+                    <th @click="sortedUsers">Имя</th>
                     <th>Телефон</th>
                 </tr>
                 <tr
@@ -30,7 +30,7 @@
     export default {
         data() {
             return {
-                isOpen: true,
+                isOpen: false,
                 persons: [
                     {id: 1, name: 'Марина', number: '+7 941 123 21 42'},
                     {id: 2, name: 'Петр', number: '+7 941 123 21 42'},
@@ -43,8 +43,16 @@
         methods: {
             createPeople(people) {
                 this.persons.push(people)
+            },
+            sortedUsers() {
+                this.persons.sort((a, b) => a.name.localeCompare(b.name));
             }
         },
+        // computed: {
+        //     sortedUsers() {
+        //         return [...this.persons].sort((a, b) => a.name.localeCompare(b.name));
+        //     }
+        // },
         components: {MyDialog}
     }
 </script>
